@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ASCII"?>
+<exampletwo:Catalog
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:exampletwo="http://www.exam.es/"
+    xsi:schemaLocation="http://www.exam.es/ /BookOne2BookTwo/metamodels/BooksTwo.ecore">
+  <works title="El Quijote">
+    <chaps name="capuno"/>
+    <chaps name="capdos"/>
+  </works>
+  <works title="Obabakoak">
+    <chaps name="kapbat"/>
+  </works>
+  <works title="1984"/>
+  <encs name="Britannica">
+    <vols title="BritOne">
+      <secs
+          name="SekOne"/>
+      <secs
+          name="SekTwo"/>
+    </vols>
+    <vols title="BritTwo"/>
+  </encs>
+  <encs name="Harry Potter Collection">
+    <vols title="Harry Potter and the Philosopher's Stone"/>
+    <vols title="Harry Potter and The Prisoner of Azkaban"/>
+    <vols title="Harry potter and the Chamber of Secrets"/>
+    <vols title="Harry Potter and the Goblet of Fire"/>
+    <vols title="Harry Potter and the Order of the Phoenix"/>
+    <vols title="Harry Potter and The Deathly Hallows"/>
+    <vols title="Harry Potter and the Cursed Child"/>
+  </encs>
+  <encs name="Elhuyar"/>
+  <encs name="The Complete Encyclopaedia">
+    <vols title="Food"/>
+    <vols title="Bodybuilding"/>
+    <vols title="Science"/>
+    <vols title="Pokemon"/>
+    <vols title="Dinosaurs"/>
+    <vols title="Human Body"/>
+    <vols title="Natural Medicine"/>
+    <vols title="Plants and Flowers"/>
+  </encs>
+</exampletwo:Catalog>

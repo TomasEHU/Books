@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<exampletwo:Catalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:exampletwo="http://www.exam.es/">
+  <works title="El Quijote">
+    <chaps name="chapOne"/>
+    <chaps name="ChapTwo"/>
+  </works>
+  <works title="Harry Potter">
+    <chaps name="chapterOne"/>
+  </works>
+  <encs name="NereBilduma">
+    <vols title="Sei"/>
+  </encs>
+  <encs name="BildumaBi">
+    <vols title="Lau">
+      <secs name="BHiru"/>
+    </vols>
+    <vols title="Bost"/>
+  </encs>
+  <encs name="BildumaBat">
+    <vols title="Bat">
+      <secs name="VBat"/>
+      <secs name="VBi"/>
+    </vols>
+    <vols title="Bi"/>
+    <vols title="Hiru"/>
+  </encs>
+</exampletwo:Catalog>

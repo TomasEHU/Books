@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<exampletwo:Catalog xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:exampletwo="http://www.exam.es/">
+  <works title="DonQuixote">
+    <chaps name="QuixoteChapterOne"/>
+    <chaps name="QuixoteChapterTwo"/>
+  </works>
+  <works title="Harry Potter">
+    <chaps name="PotterChapterOne"/>
+  </works>
+  <encs name="CollectionOne">
+    <vols title="One">
+      <secs name="ChapterOne"/>
+      <secs name="ChapterTwo"/>
+    </vols>
+    <vols title="Three"/>
+  </encs>
+  <encs name="CollectionTwo">
+    <vols title="Two"/>
+    <vols title="Four">
+      <secs name="BHiru"/>
+    </vols>
+    <vols title="Five"/>
+  </encs>
+  <encs name="AnotherCollection">
+    <vols title="Six"/>
+  </encs>
+</exampletwo:Catalog>

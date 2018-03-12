@@ -1,0 +1,62 @@
+-- @path booksOneMM=/booksexam/metamodel/BooksOne.ecore
+-- @path booksTwoMM=/booksexam/metamodel/BooksTwo.ecore
+
+module transbi;
+create OUT : booksOneMM from IN : booksTwoMM;
+
+-- ******************  RULES   *******************
+-- ***********************************************	
+rule Catalog2System {
+from s : booksTwoMM!Catalog 
+to t : booksOneMM!System ( 
+	books <- s.works->union(s.encs->collect(i | i.vols))
+	)
+do { 
+
+   }
+}
+rule Work2Book {
+from s : booksTwoMM!LiteraryWork 
+to t : booksOneMM!Book ( 
+		  title <- s.title,
+		  chaps <- s.chaps
+	)
+}
+--rule Encyclopedia2Book {
+--from s : booksTwoMM!Encyclopedia 
+--to t : booksOneMM!Book ( 
+--
+--	)
+--do { 
+--
+--   }
+--}
+rule Volume2Book {
+from s : booksTwoMM!Volume 
+to t : booksOneMM!Book ( 
+	title <- s.title,
+	collecName <- s.itsenc.name,
+	chaps <- s.secs
+	)
+do { 
+
+   }
+}
+rule Chapter2Chapter {
+from s : booksTwoMM!Chapter
+to t : booksOneMM!Chapter ( 
+	title <- s.name
+	)
+do { 
+	
+   }
+}
+rule Section2Chapter {
+from s : booksTwoMM!Section
+to t : booksOneMM!Chapter ( 
+	title <- s.name
+	)
+do { 
+
+   }
+}

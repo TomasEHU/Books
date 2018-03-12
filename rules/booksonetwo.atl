@@ -1,0 +1,83 @@
+-- @path booksOneMM=/booksexam/metamodel/BooksOne.ecore
+-- @path booksTwoMM=/booksexam/metamodel/BooksTwo.ecore
+
+module trans;
+create OUT : booksTwoMM from IN : booksOneMM;
+
+-- ****************** HELPERS  *******************
+-- ***********************************************
+
+-- This function returns the list of ‘collection names’ (i.e. encyclopaedia
+-- names). These names are collected from all ‘Book’ elements in the model.
+helper def: getAllEncyclopedias: Set(String) =
+	booksOneMM!Book.allInstances()->select(e|not e.collecName.oclIsUndefined())
+	->collect(i|i.collecName)
+	->asSet();
+	
+-- ******************  RULES   *******************
+-- ***********************************************	
+rule System2Catalog {
+	from s : booksOneMM!System 
+	to 	 t : booksTwoMM!Catalog ( 
+			works <- s.books->select(e|e.collecName.oclIsUndefined())
+		)
+	do { 
+		for (i in thisModule.getAllEncyclopedias) {
+			t.encs <- thisModule.createEncyclopedia(i);
+		}
+	}
+}
+
+rule Book2Work {
+	from s : booksOneMM!Book (s.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!LiteraryWork ( 
+			title <- s.title,
+			chaps <- s.chaps
+		)
+	do { 
+		'creating book: '.concat(s.title).println();
+	}
+}
+
+rule Book2Volume {
+	from s : booksOneMM!Book (not s.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Volume ( 
+			title <- s.title,
+			secs <- s.chaps
+		)
+	do { 
+		'creating volume: '.concat(s.title).println();
+		'    in '.concat(s.collecName).println();
+	}
+}
+
+rule Chapter2Chapter  {
+	from s : booksOneMM!Chapter (s.itsbook.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Chapter ( 
+			name <- s.title
+		)
+}
+
+rule Chapter2Section  {
+	from s : booksOneMM!Chapter (not s.itsbook.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Section ( 
+			name <- s.title 
+		)
+}
+
+rule createEncyclopedia (n: String){
+	to 	 t : booksTwoMM!Encyclopedia ( 
+			name <- n,
+			vols <- booksOneMM!Book.allInstances()->select(e|e.collecName = n)
+		)
+	do	{
+		'creating encyclopedia: '.concat(n).println();
+		t;
+	}
+}
+
+endpoint rule TheEnd () {
+	do { 
+		'Done'.println();
+	}
+}

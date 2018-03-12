@@ -1,0 +1,102 @@
+-- @path booksOneMM=/booksexam/metamodel/BooksOne.ecore
+-- @path booksTwoMM=/booksexam/metamodel/BooksTwo.ecore
+
+module booksone2two;
+create OUT : booksTwoMM from IN : booksOneMM;
+
+-- ****************** HELPERS  *******************
+-- ***********************************************
+
+-- This function returns the list of �collection names� (i.e. encyclopaedia
+-- names). These names are collected from all �Book� elements in the model.
+helper def: getAllEncyclopedias(): Set(String) =
+	booksOneMM!Book.allInstances()->reject(e| e.collecName.oclIsUndefined())
+	->collect(i|i.collecName)
+	->asSet();
+
+helper context booksOneMM!System def : getAllEncyclopedias() : Set(String) = 
+	self.books->reject(e|e.collecName.oclIsUndefined())
+	->collect(e|e.collecName)
+	->asSet();
+
+helper def : encyclopedias_s : Set(String) = Set{};
+helper def : encyclopedias_e : Set(booksTwoMM!Encyclopedia) = Set{};
+
+	
+-- ******************  RULES   *******************
+-- ***********************************************	
+rule System2Catalog {
+	from s : booksOneMM!System 
+	to 	 t : booksTwoMM!Catalog ( 
+			works <- s.books->select(e|e.collecName.oclIsUndefined())
+		)
+	do { 
+		for (i in thisModule.getAllEncyclopedias()) {
+			thisModule.createEncyclopedia(i);
+		}
+		t.encs <- thisModule.encyclopedias_e;
+	}
+}
+
+rule Book2Work {
+	from s : booksOneMM!Book (s.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!LiteraryWork ( 
+			title <- s.title,
+			chaps <- s.chaps
+		)
+	do { 
+		'creating book: '.concat(s.title).println();
+	}
+}
+
+rule Book2Volume {
+	from s : booksOneMM!Book (not s.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Volume ( 
+			title <- s.title,
+			secs <- s.chaps
+		)
+	do { 
+		'creating volume: '.concat(s.title).println();
+		'    in '.concat(s.collecName).println();
+	}
+}
+
+rule Chapter2Chapter  {
+	from s : booksOneMM!Chapter (s.itsbook.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Chapter ( 
+			name <- s.title
+		)
+}
+
+rule Chapter2Section  {
+	from s : booksOneMM!Chapter (not s.itsbook.collecName.oclIsUndefined())
+	to 	 t : booksTwoMM!Section ( 
+			name <- s.title 
+		)
+}
+
+rule createEncyclopedia (n: String){
+	to 	 t : booksTwoMM!Encyclopedia ( 
+			name <- n,
+			vols <- booksOneMM!Book.allInstances()->select(e|e.collecName = n)
+		)
+	do	{
+		'creating encyclopedia: '.concat(n).println();
+	    thisModule.encyclopedias_s <- thisModule.encyclopedias_s->including(n).debug();
+	    thisModule.encyclopedias_e <- thisModule.encyclopedias_e->including(t).debug();
+		t;  -- cheating: this to use the rule as a function (out of the scope)
+	}
+}
+
+endpoint rule TheEnd () {
+	do { 
+		'Done'.println();
+	}
+}
+
+entrypoint rule Starting(){
+	do {
+		'Starting'.println();
+		--thisModule.createEncyclopedia('The Encyclopedia without volumes');
+	}
+}

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="ASCII"?>
+<example:System
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:example="http://www.ehu.es/booksone"
+    xsi:schemaLocation="http://www.ehu.es/booksone /BookOne2BookTwo/metamodels/BooksOne.ecore"
+    name="Universal Literature Books">
+  <books title="The Tragedy of Hamlet, Prince of Denmark"
+      auths="//@authors.0"
+      collecName="English Essential Books">
+    <chaps title="Act I"/>
+    <chaps title="Act II"/>
+    <chaps title="Act III"/>
+    <chaps title="Act IV"/>
+    <chaps title="Act V"/>
+  </books>
+  <books title="The Tragedy of Othello, the Moor of Venice"
+      auths="//@authors.0"
+      collecName="English Essential Books">
+    <chaps title="Act I"/>
+    <chaps title="Act II"/>
+    <chaps title="Act III"/>
+    <chaps title="Act IV"/>
+    <chaps title="Act V"/>
+  </books>
+  <books title="King Lear"
+      auths="//@authors.0"
+      collecName="English Essential Books">
+    <chaps title="Act I"/>
+    <chaps title="Act II"/>
+    <chaps title="Act III"/>
+    <chaps title="Act IV"/>
+    <chaps title="Act V"/>
+  </books>
+  <books title="The Tragedy of Macbeth"
+      auths="//@authors.0"
+      collecName="English Essential Books">
+    <chaps title="Act I"/>
+    <chaps title="Act II"/>
+    <chaps title="Act III"/>
+    <chaps title="Act IV"/>
+    <chaps title="Act V"/>
+  </books>
+  <books title="A Midsummer Night's Dream"
+      auths="//@authors.0"
+      collecName="English Essential Books">
+    <chaps title="Act I"/>
+    <chaps title="Act II"/>
+    <chaps title="Act III"/>
+    <chaps title="Act IV"/>
+    <chaps title="Act V"/>
+  </books>
+  <books title="One Hundred Years of Solitude"
+      auths="//@authors.1"
+      collecName="Spanish Essentials">
+    <chaps title="Chapter One"/>
+    <chaps title="Chapter Hundred"/>
+    <chaps title="Chapter Yeras"/>
+    <chaps title="Chapter Of"/>
+    <chaps title="Chapter Solitude"/>
+    <chaps title="Chapter Aureliano"/>
+    <chaps title="Chapter Buendia"/>
+  </books>
+  <books title="Love in the Time of Cholera"
+      auths="//@authors.1"
+      collecName="Spanish Essential Books">
+    <chaps title="Chapter Love"/>
+    <chaps title="Chapter In"/>
+    <chaps title="Chapter The"/>
+    <chaps title="Chapter Time"/>
+    <chaps title="Chapter Of"/>
+    <chaps title="Chapter Cholera"/>
+  </books>
+  <books title="Chronicle of a Death Foretold"
+      auths="//@authors.1"
+      collecName="Spanish Essential Books">
+    <chaps title="Chapter Chronicle"/>
+    <chaps title="Chapter Of"/>
+    <chaps title="Chapter A"/>
+    <chaps title="Chapter Death"/>
+    <chaps title="Chapter Foretold"/>
+  </books>
+  <books title="Sonets"
+      auths="//@authors.0"/>
+  <authors mybs="//@books.0 //@books.1 //@books.2 //@books.3 //@books.4 //@books.8"
+      name="W. Shakespeare"/>
+  <authors mybs="//@books.5 //@books.6 //@books.7"
+      name="G Garcia Marquez"/>
+</example:System>

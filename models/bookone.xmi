@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ASCII"?>
+<example:System
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:example="http://www.ehu.es/booksone"
+    name="example">
+  <books title="DonQuixote"
+      auths="//@authors.0">
+    <chaps title="QuixoteChapterOne"/>
+    <chaps title="QuixoteChapterTwo"/>
+  </books>
+  <books title="Harry Potter"
+      auths="//@authors.1">
+    <chaps title="PotterChapterOne"/>
+  </books>
+  <books title="One"
+      collecName="CollectionOne">
+    <chaps title="ChapterOne"/>
+    <chaps title="ChapterTwo"/>
+  </books>
+  <books title="Two"
+      collecName="CollectionTwo"/>
+  <books title="Three"
+      collecName="CollectionOne"/>
+  <books title="Four"
+      collecName="CollectionTwo">
+    <chaps title="BHiru"/>
+  </books>
+  <books title="Five"
+      collecName="CollectionTwo"/>
+  <books title="Six"
+      collecName="AnotherCollection"/>
+  <authors mybs="//@books.0"
+      name="Cervantes"/>
+  <authors mybs="//@books.1"
+      name="JK Rowling"/>
+</example:System>

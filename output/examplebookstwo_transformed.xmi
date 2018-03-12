@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<example:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:example="http://www.ehu.es/booksone">
+  <books title="El Quijote">
+    <chaps title="capuno"/>
+    <chaps title="capdos"/>
+  </books>
+  <books title="Obabakoak">
+    <chaps title="kapbat"/>
+  </books>
+  <books title="1984"/>
+  <books title="BritOne" collecName="Britannica">
+    <chaps title="SekOne"/>
+    <chaps title="SekTwo"/>
+  </books>
+  <books title="BritTwo" collecName="Britannica"/>
+  <books title="Harry Potter and the Philosopher's Stone" collecName="Harry Potter Collection"/>
+  <books title="Harry Potter and The Prisoner of Azkaban" collecName="Harry Potter Collection"/>
+  <books title="Harry potter and the Chamber of Secrets" collecName="Harry Potter Collection"/>
+  <books title="Harry Potter and the Goblet of Fire" collecName="Harry Potter Collection"/>
+  <books title="Harry Potter and the Order of the Phoenix" collecName="Harry Potter Collection"/>
+  <books title="Harry Potter and The Deathly Hallows" collecName="Harry Potter Collection"/>
+  <books title="Harry Potter and the Cursed Child" collecName="Harry Potter Collection"/>
+  <books title="Food" collecName="The Complete Encyclopaedia"/>
+  <books title="Bodybuilding" collecName="The Complete Encyclopaedia"/>
+  <books title="Science" collecName="The Complete Encyclopaedia"/>
+  <books title="Pokemon" collecName="The Complete Encyclopaedia"/>
+  <books title="Dinosaurs" collecName="The Complete Encyclopaedia"/>
+  <books title="Human Body" collecName="The Complete Encyclopaedia"/>
+  <books title="Natural Medicine" collecName="The Complete Encyclopaedia"/>
+  <books title="Plants and Flowers" collecName="The Complete Encyclopaedia"/>
+</example:System>
